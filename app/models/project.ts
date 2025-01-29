@@ -1,7 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
+import { BaseModel, beforeCreate, belongsTo, column } from '@adonisjs/lucid/orm'
 import { Client, Fleet, RestartPolicy } from 'valyent.ts'
 import env from '#start/env'
+import User from './user.js'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Project extends BaseModel {
   @column({ isPrimary: true })
@@ -32,10 +34,10 @@ export default class Project extends BaseModel {
       }
     }
 
-    valyent.machines.create('ai', {
+    const machine = await valyent.machines.create('ai', {
       region: 'gra-1',
       config: {
-        image: 'valyent/geppetto-nextjs:latest',
+        image: 'valyent/ai-adonisjs-template:latest',
         guest: {
           cpu_kind: 'std',
           memory_mb: 4096,
@@ -49,7 +51,16 @@ export default class Project extends BaseModel {
       },
       enable_machine_gateway: true,
     })
+    project.machineId = machine.id
   }
+
+  @belongsTo(() => User, {
+    foreignKey: 'userId',
+  })
+  declare user: BelongsTo<typeof User>
+
+  @column()
+  declare userId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

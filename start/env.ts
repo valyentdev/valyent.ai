@@ -43,4 +43,11 @@ export default await Env.create(new URL('../', import.meta.url), {
   */
   VALYENT_API_KEY: Env.schema.string(),
   VALYENT_ORGANIZATION: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring LLM models.
+  |----------------------------------------------------------
+  */
+  ANTHROPIC_API_KEY: Env.schema.string.optional(),
 })
