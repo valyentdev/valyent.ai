@@ -1,0 +1,5 @@
+services:
+  code-server:
+    image: adonisjs-template
+    ports:
+      - 8080:8080
