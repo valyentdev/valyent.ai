@@ -4,6 +4,7 @@ import inertia from '@adonisjs/inertia/client'
 import react from '@vitejs/plugin-react'
 import adonisjs from '@adonisjs/vite/client'
 import tailwindcss from '@tailwindcss/vite'
+import env from '#start/env'
 
 export default defineConfig({
   plugins: [
@@ -12,6 +13,10 @@ export default defineConfig({
     adonisjs({ entrypoints: ['inertia/app/app.tsx'], reload: ['resources/views/**/*.edge'] }),
     tailwindcss(),
   ],
+
+  server: {
+    allowedHosts: env.get('NODE_ENV') === 'development' ? true : undefined,
+  },
 
   /**
    * Define aliases for importing modules from

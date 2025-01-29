@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title inertia>
-      Valyent.ai AdonisJS Application
+      Valyent AI AdonisJS Application
     </title>
 
     <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -16,7 +16,7 @@
 
     @viteReactRefresh()
     @inertiaHead()
-    @vite(['inertia/app.css', 'inertia/app/app.tsx', `inertia/pages/${page.component}.tsx`])
+    @vite(['inertia/app/app.tsx', `inertia/pages/${page.component}.tsx`])
   </head>
   <body class="min-h-screen w-screen font-sans antialiased">
     @inertia()

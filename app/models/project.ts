@@ -12,6 +12,9 @@ export default class Project extends BaseModel {
   @column()
   declare machineId: string
 
+  @column()
+  declare name: string
+
   @beforeCreate()
   static async assignMachineToProject(project: Project) {
     const valyent = new Client(env.get('VALYENT_API_KEY'), env.get('VALYENT_ORGANIZATION'))

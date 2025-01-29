@@ -1,10 +1,10 @@
-# Valyent.ai
+# Valyent AI
 
 > Generate full-stack web applications with AI.
 
 ## Approach
 
-Valyent.ai leverages fully-featured frameworks like AdonisJS, Laravel, ... to generate full-stack web applications with AI.
+Valyent AI leverages fully-featured frameworks like AdonisJS, Laravel, ... to generate full-stack web applications with AI.
 
 ## Installation
 
