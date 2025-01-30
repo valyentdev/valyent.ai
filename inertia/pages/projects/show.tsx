@@ -2,16 +2,17 @@ import React from 'react'
 import Project from '#models/project'
 import ProjectsLayout from '@/components/projects/projects_layout'
 import WebPreview from '@/components/projects/web_preview'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Code2, PanelTop } from 'lucide-react'
 import clsx from 'clsx'
+import Chat from '@/components/projects/chat'
 
 export default function ShowProjectPage({ project }: { project: Project }) {
   const [tabValue, setTabValue] = React.useState('code')
   return (
     <ProjectsLayout
       breadcrumbs={[{ label: 'Projects', href: '/projects' }, { label: `Project ${project.id}` }]}
-      left={<>truc</>}
+      left={<Chat />}
       right={
         <Tabs value={tabValue} onValueChange={setTabValue} className="h-full">
           <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b pr-3">
@@ -46,6 +47,6 @@ export default function ShowProjectPage({ project }: { project: Project }) {
           </div>
         </Tabs>
       }
-    ></ProjectsLayout>
+    />
   )
 }

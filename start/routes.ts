@@ -24,6 +24,10 @@ router.post('/auth/sign_out', [SignOutController, 'handle'])
 
 const ProjectsController = () => import('#controllers/projects_controller')
 router.resource('projects', ProjectsController).use('*', [middleware.auth()])
+router
+  .post('/projects/:id/chat', [ProjectsController, 'chat'])
+  .use(middleware.auth())
+  .as('projects.chat')
 
 const GithubController = () => import('#controllers/auth/github_controller')
 router.get('/auth/github/redirect', [GithubController, 'redirect'])

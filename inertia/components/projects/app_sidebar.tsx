@@ -30,7 +30,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <Link href="/">
                 <div
                   className={clsx(
-                    'flex aspect-square items-center justify-center rounded-lg',
+                    'flex aspect-square items-center justify-center rounded-sm',
                     open ? 'size-8' : 'size-5'
                   )}
                 >
